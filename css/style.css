@@ -1,0 +1,226 @@
+/* preventing from overflow */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* wrapper styles */
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* small screens styles */
+@media (max-width: 767px) {
+  .sidebar {
+    position: absolute;
+    top: 0;
+    width: 50vw;
+    min-height: 100vh;
+  }
+  .wrapper {
+    transform: translateX(0) translateZ(0);
+    transition: transform .2s;
+    will-change: transform;
+  }
+
+  /* Button deco */
+  [class^="nav-button"] {
+    display: block;
+    z-index: 1;
+    height: 3.5rem; width: 3.5rem;
+    background-color: transparent;
+    background-image: linear-gradient(to right, #333, #333),
+    linear-gradient(to right, #333, #333),
+    linear-gradient(to right, #333, #333);
+    background-position: center top, center, center bottom;
+    background-repeat: no-repeat;
+    background-size: 3.5rem .9rem;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+  }
+  
+  /* here's goes the push left effect */
+  body:target .wrapper {
+    transform: translateX(50vw);
+  }
+  .nav-button-close,
+  body:target .nav-button-open {
+    display: none;
+  }
+  .nav-button-open,
+  body:target .nav-button-close {
+    display: block;
+  }
+  
+  } /* end of small screen media query */
+
+  /* Global deco */
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    font-size: 62.5%;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-size: 1.6em;
+    font-family: arial, sans-serif;
+  }
+  a {
+    color: #fff;
+  }
+  .wrapper {
+    padding: 2rem;
+    background-color: #eee;
+    color: #333;
+  }
+  .sidebar {
+    padding-top: 1em;
+    background: #333;
+    color: #ddd;
+  }
+  nav a {
+    display: block;
+    padding: .7em;
+    margin-bottom: 2px;
+    text-decoration: none;
+    background: rgba(255,255,255, 0.1);
+  }
+
+  /* Global deco */
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 62.5%;
+    font-size: calc(1em * .625);
+  }
+
+  body {
+    margin: 0;
+    font-size: 1.6em;
+    font-family: arial, sans-serif;
+  }
+
+  .main {
+    padding: 5rem 2rem;
+    background: #fff;
+  }
+
+  /* Global layout */
+
+  .navigation {
+    background: #333;
+  }
+  .navigation > a {
+    display: block;
+    padding: 10px;
+    background: rgba(255,255,255,.3);
+    margin-bottom: 2px;
+    color: #fff;
+    text-decoration: none;
+  }
+  .navigation > a:hover,
+  .navigation > a:focus,
+  .navigation > a:active {
+    background: #555;
+  }
+
+  .nav-button {
+    display: none; /* no button by default */
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1; /* will be above everything */
+    height: 2.4rem;
+    width: 2.8rem;
+    background-color: transparent;
+    background-image: linear-gradient(to right, currentColor, currentColor);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 5px;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    color: #333;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .nav-button::before,
+  .nav-button::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    display: block;
+    height: 5px;
+    background: currentColor;
+    transition: .25s;
+    transition-property: transform, top;
+    will-change: transform, top;
+  }
+  .nav-button::before {
+    top: 0;
+  }
+  .nav-button::after {
+    top: calc(100% - 4px);
+  }
+
+
+  @media (max-width: 545px) {
+    .js-enabled html,
+    .js-enabled body {
+      overflow-x: hidden; /* you shall not pass! */
+    }
+    .js-enabled .nav-button {
+      display: inline-block;
+    }
+    .js-enabled .navigation {
+      position: absolute;
+      width: 60vw;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 0; /* will be under everything */
+    }
+
+    /* styling opened nav */
+    .js-enabled .main {
+      position: relative;
+      transition: transform .25s;
+      will-change: transform;
+      min-height: 100vh;
+    }
+    .js-enabled .main.is-opened {
+      transform: translateX(60vw);
+    }
+  }
+  /*Mon style*/
+  .content-section {
+    color: #FFFFFF;
+    z-index: 2;
+    overflow: hidden;
+    position: relative;
+    padding-top: 45px;
+    padding-bottom: 100px;
+    float: right;
+    width: 89.5%;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b5bdc8+0,828c95+36,28343b+100;Grey+Black+3D */
+    background: #b5bdc8; /* Old browsers */
+    background: -moz-linear-gradient(left,  #b5bdc8 0%, #828c95 36%, #28343b 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  #b5bdc8 0%,#828c95 36%,#28343b 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  #b5bdc8 0%,#828c95 36%,#28343b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#28343b',GradientType=1 ); /* IE6-9 */
+  }
+  #home .main-masthead {
+    text-align: center;
+  }
+
+  /*Mon style*/
