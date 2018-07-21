@@ -864,6 +864,16 @@ p.medium-text{
   -o-animation: pace-spinner 400ms linear infinite;
   animation: pace-spinner 400ms linear infinite;
 }
+#portfolio .item {
+  width: 50%;
+  float: left;
+  margin-bottom: 20px;
+
+}
+#portfolio .item a {
+	display: flex;
+	align-items: center;
+}
 
 @-webkit-keyframes pace-spinner {
   0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
